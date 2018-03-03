@@ -2,6 +2,8 @@ FROM centos
 RUN mkdir -p /opt/kafka \
   && cd /opt/kafka \
   && yum -y install java-1.8.0-openjdk-headless tar \
+  && yum install -y https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.rpm \
+  && yum install -y https://dl.bintray.com/sbt/rpm/sbt-0.13.13.rpm \
   && curl -s https://www.mirrorservice.org/sites/ftp.apache.org/kafka/0.10.1.1/kafka_2.11-0.10.1.1.tgz | tar -xz --strip-components=1 \
   && yum clean all
 RUN chmod -R a=u /opt/kafka
