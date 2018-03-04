@@ -11,11 +11,11 @@ RUN mkdir -p /opt/kafka \
   && curl -s https://www.mirrorservice.org/sites/ftp.apache.org/kafka/0.10.1.1/kafka_2.11-0.10.1.1.tgz | tar -xz --strip-components=1 \
   && yum clean all
 
-#install scala RUN wget $SCALA_TAR_URL/scala-$SCALA_VERSION.tgz
-RUN tar xvf scala-$SCALA_VERSION.tgz \
-  && mv scala-$SCALA_VERSION /usr/lib \
-  && rm scala-$SCALA_VERSION.tgz \
-  && ln -s /usr/lib/scala-$SCALA_VERSION /usr/lib/scala
+#install scala 
+RUN cd /opt \
+  && wget $SCALA_TAR_URL/scala-$SCALA_VERSION.tgz \
+  && tar xvf scala-$SCALA_VERSION.tgz \
+  && rm scala-$SCALA_VERSION.tgz
 
 RUN chmod -R a=u /opt/kafka
 WORKDIR /opt/kafka
