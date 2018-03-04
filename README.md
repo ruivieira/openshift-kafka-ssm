@@ -1,21 +1,32 @@
-# openshift-kafka-ssm
+# "Apache Kafka for OpenShift"
+
+Run [Apache Kafka](https://kafka.apache.org/) and [Apache ZooKeeper](https://zookeeper.apache.org/) on [OpenShift v3](https://www.openshift.com/).
+
+This was developed for demonstration purposes. Use in environments where you do not need persistence in the face of failures or configuration tuning for scale.
+
+The architecture is as follows:
+
+* 1 pod containing a container for Apache Kafka and Apache ZooKeeper
+* 1 service to access the containers
 
 
-Load resources (Templates, DeploymentConfigs, Services)
+## Quick start
 
+1. Load resources (Templates, DeploymentConfigs, Services)
+```bash
+oc create -f https://raw.githubusercontent.com/mattf/openshift-kafka/master/resources.yaml
 ```
-oc create -f https://raw.githubusercontent.com/ruivieira/openshift-kafka-ssm/master/resources.yaml
-```
 
-Deploy the Apache Kafka + Apache Zookeeper pod
-
-```
+2. Deploy the Apache Kafka + Apache Zookeeper pod
+```bash
 oc new-app apache-kafka
 ```
 
+## Follow the [Apache Kafka Documentation Quick Start](https://kafka.apache.org/documentation.html#quickstart)
+
 3. Deploy a debugging container and connect to it
 ```bash
-oc run -it --rm kafka-debug --image=ruivieira/openshift-kafka-ssm --command -- bash
+oc run -it --rm kafka-debug --image=mattf/openshift-kafka --command -- bash
 ```
 
 4. Create a topic
@@ -44,4 +55,4 @@ bin/kafka-console-consumer.sh --bootstrap-server apache-kafka:9092 --topic test 
 
 ## Credits
 
-* This is based on work original by [Jim Minter](https://github.com/jim-minter) and of https://github.com/mattf/openshift-kafka by [Matthew Farrellee](https://github.com/mattf)
+* This is based on work original by [Jim Minter](https://github.com/jim-minter)
