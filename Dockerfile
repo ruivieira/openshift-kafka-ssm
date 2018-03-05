@@ -1,9 +1,9 @@
 FROM centos
 
 # Env variables
-ENV SCALA_TAR_URL http://www.scala-lang.org/files/archive 
-ENV SCALA_VERSION 2.12.4 
-ENV SBT_VERSION 0.13.8
+# ENV SCALA_TAR_URL http://www.scala-lang.org/files/archive 
+# ENV SCALA_VERSION 2.12.4 
+# ENV SBT_VERSION 0.13.8
 
 RUN mkdir -p /opt/kafka \
   && cd /opt/kafka \
