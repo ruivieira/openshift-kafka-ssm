@@ -23,6 +23,8 @@ RUN mkdir -p /opt/kafka \
 
 RUN chmod -R a=u /opt/kafka
 
+COPY producer/ /opt/producer
+
 WORKDIR /opt/kafka
 VOLUME /tmp/kafka-logs /tmp/zookeeper
 EXPOSE 2181 2888 3888 9092

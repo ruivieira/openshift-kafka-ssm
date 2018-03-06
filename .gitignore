@@ -1,3 +1,7 @@
 
 .idea
 *.iml
+producer/project/target
+producer/target
+*.ipr
+*.iws
