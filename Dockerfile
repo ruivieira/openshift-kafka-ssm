@@ -25,7 +25,7 @@ RUN chmod -R a=u /opt/kafka
 
 COPY producer/ /opt/producer
 
-RUN chmod -R 700 /opt/producer
+RUN chmod -R 777 /opt/producer
 
 WORKDIR /opt/kafka
 VOLUME /tmp/kafka-logs /tmp/zookeeper
